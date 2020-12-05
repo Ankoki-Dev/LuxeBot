@@ -1,7 +1,6 @@
 package luxebot.com.ankoki;
 
-import luxebot.com.ankoki.commands.GithubCommand;
-import luxebot.com.ankoki.commands.RulesCommand;
+import luxebot.com.ankoki.commands.*;
 import luxebot.com.ankoki.gitignore.Secrets;
 import luxebot.com.ankoki.listeners.CommandListener;
 import luxebot.com.ankoki.managers.GuildCommand;
@@ -61,6 +60,9 @@ public class LuxeBot extends ListenerAdapter {
     private static void registerGuildCommands() {
         GUILD_COMMANDS.add(new RulesCommand());
         GUILD_COMMANDS.add(new GithubCommand());
+        GUILD_COMMANDS.add(new WarnCommand());
+        GUILD_COMMANDS.add(new PurgeCommand());
+        GUILD_COMMANDS.add(new IPCommand());
     }
 
     public static List<GuildCommand> getGuildCommands() {

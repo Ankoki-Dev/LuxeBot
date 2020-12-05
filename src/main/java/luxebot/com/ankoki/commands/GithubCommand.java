@@ -26,7 +26,7 @@ public class GithubCommand implements GuildCommand {
                         "repositories and projects that they may be working on!", false),
                         new Field("Info",
                                 "Most work Ankoki does on the server is published " +
-                                "here, even this bot!", false)));
+                                "here, even this bot! Check out all the repositories!", false)));
     }
 
     @Override
