@@ -1,7 +1,7 @@
-package luxebot.com.ankoki.commands.fun;
+package com.ankoki.luxebot.commands.fun;
 
-import luxebot.com.ankoki.managers.GuildCommand;
-import luxebot.com.ankoki.utilities.Embed;
+import com.ankoki.luxebot.managers.GuildCommand;
+import com.ankoki.luxebot.utilities.Embed;
 import net.dv8tion.jda.api.Permission;
 import net.dv8tion.jda.api.entities.Guild;
 import net.dv8tion.jda.api.entities.Message;

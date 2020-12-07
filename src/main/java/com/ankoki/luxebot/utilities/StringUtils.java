@@ -1,4 +1,4 @@
-package luxebot.com.ankoki.utilities;
+package com.ankoki.luxebot.utilities;
 
 import java.util.Arrays;
 

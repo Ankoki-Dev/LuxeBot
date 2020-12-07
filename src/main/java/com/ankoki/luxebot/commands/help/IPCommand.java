@@ -1,7 +1,7 @@
-package luxebot.com.ankoki.commands.help;
+package com.ankoki.luxebot.commands.help;
 
-import luxebot.com.ankoki.managers.GuildCommand;
-import luxebot.com.ankoki.utilities.Embed;
+import com.ankoki.luxebot.managers.GuildCommand;
+import com.ankoki.luxebot.utilities.Embed;
 import net.dv8tion.jda.api.Permission;
 import net.dv8tion.jda.api.entities.Guild;
 import net.dv8tion.jda.api.entities.Message;
@@ -9,16 +9,16 @@ import net.dv8tion.jda.api.entities.TextChannel;
 import net.dv8tion.jda.api.entities.User;
 import org.jetbrains.annotations.Nullable;
 
-public class PastebinCommand implements GuildCommand {
+public class IPCommand implements GuildCommand {
 
     @Override
     public void onCommand(Guild guild, User user, TextChannel channel, String[] args, Message message) {
-        channel.sendMessage(Embed.simple("**Pastebin Websites:**\n:one: https://hastebin.com/\n:two: https://paste.md-5.net/\n:three: https://pastebin.com/", user)).queue();
+        channel.sendMessage(Embed.simple(":no_entry_sign: Um... awkward but we don't have any IP's right now...", user)).queue();
     }
 
     @Override
     public String[] getAliases() {
-        return new String[]{"paste", "haste", "pb", "hb"};
+        return new String[]{"ip", "join"};
     }
 
     @Override

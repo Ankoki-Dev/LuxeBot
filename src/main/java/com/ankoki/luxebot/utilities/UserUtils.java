@@ -1,4 +1,4 @@
-package luxebot.com.ankoki.utilities;
+package com.ankoki.luxebot.utilities;
 
 import net.dv8tion.jda.api.Permission;
 import net.dv8tion.jda.api.entities.Member;

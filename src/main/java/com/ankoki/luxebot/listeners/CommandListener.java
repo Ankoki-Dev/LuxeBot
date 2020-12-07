@@ -1,12 +1,12 @@
-package luxebot.com.ankoki.listeners;
+package com.ankoki.luxebot.listeners;
 
-import luxebot.com.ankoki.gitignore.Secrets;
-import luxebot.com.ankoki.managers.GuildCommand;
-import luxebot.com.ankoki.managers.PrivateCommand;
-import luxebot.com.ankoki.utilities.Embed;
-import luxebot.com.ankoki.utilities.StringUtils;
-import luxebot.com.ankoki.LuxeBot;
-import luxebot.com.ankoki.utilities.UserUtils;
+import com.ankoki.luxebot.LuxeBot;
+import com.ankoki.luxebot.gitignore.Secrets;
+import com.ankoki.luxebot.managers.GuildCommand;
+import com.ankoki.luxebot.managers.PrivateCommand;
+import com.ankoki.luxebot.utilities.Embed;
+import com.ankoki.luxebot.utilities.StringUtils;
+import com.ankoki.luxebot.utilities.UserUtils;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
 import net.dv8tion.jda.api.events.message.priv.PrivateMessageReceivedEvent;
@@ -29,7 +29,7 @@ public class CommandListener extends ListenerAdapter {
         if (!message.startsWith(Secrets.PREFIX)) return;
 
         String commandName = StringUtils.getCommandName(e.getMessage().getContentRaw(), Secrets.PREFIX);
-        for (GuildCommand command : LuxeBot.getGuildCommands()) {
+        for (GuildCommand command : LuxeBot.instance().getGuildCommands()) {
             if (Arrays.asList(command.getAliases()).contains(commandName.toLowerCase())) {
                 if (UserUtils.hasPerm(e.getMember(), command.getPermissions())) {
                     command.onCommand(e.getGuild(), e.getAuthor(), e.getChannel(), StringUtils.withoutCommand(message).split(" "), e.getMessage());
@@ -49,7 +49,7 @@ public class CommandListener extends ListenerAdapter {
         if (!message.startsWith(Secrets.PREFIX)) return;
 
         String commandName = StringUtils.getCommandName(e.getMessage().getContentRaw(), Secrets.PREFIX);
-        for (PrivateCommand command : LuxeBot.getPrivateCommands()) {
+        for (PrivateCommand command : LuxeBot.instance().getPrivateCommands()) {
             if (Arrays.asList(command.getAliases()).contains(commandName.toLowerCase())) {
                 command.onCommand(e.getAuthor(), e.getChannel(), StringUtils.withoutCommand(message).split(" "), commandName);
                 break;

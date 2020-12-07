@@ -1,7 +1,7 @@
-package luxebot.com.ankoki.commands.help;
+package com.ankoki.luxebot.commands.help;
 
-import luxebot.com.ankoki.gitignore.Secrets;
-import luxebot.com.ankoki.managers.GuildCommand;
+import com.ankoki.luxebot.gitignore.Secrets;
+import com.ankoki.luxebot.managers.GuildCommand;
 import net.dv8tion.jda.api.Permission;
 import net.dv8tion.jda.api.entities.*;
 import net.dv8tion.jda.api.entities.MessageEmbed.Footer;

@@ -1,6 +1,6 @@
-package luxebot.com.ankoki.utilities;
+package com.ankoki.luxebot.utilities;
 
-import luxebot.com.ankoki.gitignore.Secrets;
+import com.ankoki.luxebot.gitignore.Secrets;
 import net.dv8tion.jda.api.entities.MessageEmbed;
 import net.dv8tion.jda.api.entities.MessageEmbed.Footer;
 import net.dv8tion.jda.api.entities.MessageEmbed.Field;

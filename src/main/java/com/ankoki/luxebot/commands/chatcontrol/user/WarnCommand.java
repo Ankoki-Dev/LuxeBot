@@ -1,9 +1,9 @@
-package luxebot.com.ankoki.commands.chatcontrol.user;
+package com.ankoki.luxebot.commands.chatcontrol.user;
 
-import luxebot.com.ankoki.gitignore.Secrets;
-import luxebot.com.ankoki.managers.GuildCommand;
-import luxebot.com.ankoki.utilities.Embed;
-import luxebot.com.ankoki.utilities.StringUtils;
+import com.ankoki.luxebot.gitignore.Secrets;
+import com.ankoki.luxebot.utilities.StringUtils;
+import com.ankoki.luxebot.managers.GuildCommand;
+import com.ankoki.luxebot.utilities.Embed;
 import net.dv8tion.jda.api.Permission;
 import net.dv8tion.jda.api.entities.*;
 import net.dv8tion.jda.api.entities.MessageEmbed.Field;

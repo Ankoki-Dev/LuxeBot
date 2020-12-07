@@ -1,19 +1,19 @@
-package luxebot.com.ankoki;
+package com.ankoki.luxebot;
 
-import luxebot.com.ankoki.commands.chatcontrol.PurgeCommand;
-import luxebot.com.ankoki.commands.fun.EightBallCommand;
-import luxebot.com.ankoki.commands.help.RulesCommand;
-import luxebot.com.ankoki.commands.fun.BottomCommand;
-import luxebot.com.ankoki.commands.help.GithubCommand;
-import luxebot.com.ankoki.commands.help.IPCommand;
-import luxebot.com.ankoki.commands.help.PastebinCommand;
-import luxebot.com.ankoki.commands.chatcontrol.user.BanCommand;
-import luxebot.com.ankoki.commands.chatcontrol.user.KickCommand;
-import luxebot.com.ankoki.commands.chatcontrol.user.WarnCommand;
-import luxebot.com.ankoki.gitignore.Secrets;
-import luxebot.com.ankoki.listeners.CommandListener;
-import luxebot.com.ankoki.managers.GuildCommand;
-import luxebot.com.ankoki.managers.PrivateCommand;
+import com.ankoki.luxebot.gitignore.Secrets;
+import com.ankoki.luxebot.commands.chatcontrol.PurgeCommand;
+import com.ankoki.luxebot.commands.fun.EightBallCommand;
+import com.ankoki.luxebot.commands.help.RulesCommand;
+import com.ankoki.luxebot.commands.fun.BottomCommand;
+import com.ankoki.luxebot.commands.help.GithubCommand;
+import com.ankoki.luxebot.commands.help.IPCommand;
+import com.ankoki.luxebot.commands.help.PastebinCommand;
+import com.ankoki.luxebot.commands.chatcontrol.user.BanCommand;
+import com.ankoki.luxebot.commands.chatcontrol.user.KickCommand;
+import com.ankoki.luxebot.commands.chatcontrol.user.WarnCommand;
+import com.ankoki.luxebot.listeners.CommandListener;
+import com.ankoki.luxebot.managers.GuildCommand;
+import com.ankoki.luxebot.managers.PrivateCommand;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.JDABuilder;
 import net.dv8tion.jda.api.OnlineStatus;
@@ -28,13 +28,16 @@ import java.util.List;
 
 public class LuxeBot extends ListenerAdapter {
 
-    private static final List<GuildCommand> GUILD_COMMANDS = new ArrayList<>();
-    private static final List<PrivateCommand> PRIVATE_COMMANDS = new ArrayList<>();
+    private final List<GuildCommand> GUILD_COMMANDS = new ArrayList<>();
+    private final List<PrivateCommand> PRIVATE_COMMANDS = new ArrayList<>();
+    private static LuxeBot instance;
     private static JDA jda;
 
     public static void main(String[] args) {
         long start = System.currentTimeMillis();
         System.out.println("Bot Starting!");
+
+        instance = new LuxeBot();
 
         String token = Secrets.TOKEN;
 
@@ -64,12 +67,12 @@ public class LuxeBot extends ListenerAdapter {
             ex.printStackTrace();
         }
 
-        registerGuildCommands();
+        instance.registerGuildCommands();
         System.out.printf("Bot was enabled in %.2f seconds!%n", (float) System.currentTimeMillis() - start);
         System.out.println("Invite LuxeBot through this link: " + Secrets.BOT_INVITE);
     }
 
-    private static void registerGuildCommands() {
+    private void registerGuildCommands() {
         GUILD_COMMANDS.add(new RulesCommand());
         GUILD_COMMANDS.add(new GithubCommand());
         GUILD_COMMANDS.add(new WarnCommand());
@@ -82,11 +85,15 @@ public class LuxeBot extends ListenerAdapter {
         GUILD_COMMANDS.add(new EightBallCommand());
     }
 
-    public static List<GuildCommand> getGuildCommands() {
+    public static LuxeBot instance() {
+        return instance;
+    }
+
+    public List<GuildCommand> getGuildCommands() {
         return GUILD_COMMANDS;
     }
 
-    public static List<PrivateCommand> getPrivateCommands() {
+    public List<PrivateCommand> getPrivateCommands() {
         return PRIVATE_COMMANDS;
     }
 

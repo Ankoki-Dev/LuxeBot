@@ -24,7 +24,7 @@
                 <configuration>
                     <transformers>
                         <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
-                            <mainClass>ch0k3r.com.ankoki.MainBot</mainClass>
+                            <mainClass>com.ankoki.luxebot.LuxeBot</mainClass>
                         </transformer>
                     </transformers>
                 </configuration>

@@ -1,4 +1,4 @@
-package luxebot.com.ankoki.managers;
+package com.ankoki.luxebot.managers;
 
 import net.dv8tion.jda.api.entities.*;
 
