@@ -1,6 +1,15 @@
 package luxebot.com.ankoki;
 
-import luxebot.com.ankoki.commands.*;
+import luxebot.com.ankoki.commands.chatcontrol.PurgeCommand;
+import luxebot.com.ankoki.commands.fun.EightBallCommand;
+import luxebot.com.ankoki.commands.help.RulesCommand;
+import luxebot.com.ankoki.commands.fun.BottomCommand;
+import luxebot.com.ankoki.commands.help.GithubCommand;
+import luxebot.com.ankoki.commands.help.IPCommand;
+import luxebot.com.ankoki.commands.help.PastebinCommand;
+import luxebot.com.ankoki.commands.chatcontrol.user.BanCommand;
+import luxebot.com.ankoki.commands.chatcontrol.user.KickCommand;
+import luxebot.com.ankoki.commands.chatcontrol.user.WarnCommand;
 import luxebot.com.ankoki.gitignore.Secrets;
 import luxebot.com.ankoki.listeners.CommandListener;
 import luxebot.com.ankoki.managers.GuildCommand;
@@ -11,6 +20,7 @@ import net.dv8tion.jda.api.OnlineStatus;
 import net.dv8tion.jda.api.entities.Activity;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
 import net.dv8tion.jda.api.requests.GatewayIntent;
+import net.dv8tion.jda.api.utils.MemberCachePolicy;
 
 import javax.security.auth.login.LoginException;
 import java.util.ArrayList;
@@ -46,7 +56,9 @@ public class LuxeBot extends ListenerAdapter {
             JDABuilder.createLight(token, GatewayIntent.GUILD_MESSAGES, GatewayIntent.DIRECT_MESSAGES, GatewayIntent.GUILD_MESSAGE_REACTIONS, GatewayIntent.DIRECT_MESSAGE_REACTIONS, GatewayIntent.GUILD_BANS, GatewayIntent.GUILD_MEMBERS)
                     .addEventListeners(new CommandListener(jda))
                     .setActivity(Activity.listening("Ayesha Erotica"))
-                    .setStatus(OnlineStatus.IDLE)
+                    .setMemberCachePolicy(MemberCachePolicy.ALL)
+                    .enableIntents(GatewayIntent.GUILD_MEMBERS)
+                    .setStatus(OnlineStatus.DO_NOT_DISTURB)
                     .build();
         } catch (LoginException ex) {
             ex.printStackTrace();
@@ -63,6 +75,11 @@ public class LuxeBot extends ListenerAdapter {
         GUILD_COMMANDS.add(new WarnCommand());
         GUILD_COMMANDS.add(new PurgeCommand());
         GUILD_COMMANDS.add(new IPCommand());
+        GUILD_COMMANDS.add(new BanCommand());
+        GUILD_COMMANDS.add(new KickCommand());
+        GUILD_COMMANDS.add(new BottomCommand());
+        GUILD_COMMANDS.add(new PastebinCommand());
+        GUILD_COMMANDS.add(new EightBallCommand());
     }
 
     public static List<GuildCommand> getGuildCommands() {

@@ -1,4 +1,4 @@
-package luxebot.com.ankoki.commands;
+package luxebot.com.ankoki.commands.help;
 
 import luxebot.com.ankoki.gitignore.Secrets;
 import luxebot.com.ankoki.managers.GuildCommand;
@@ -73,7 +73,8 @@ public class RulesCommand implements GuildCommand {
     }
 
     @Override
-    public @Nullable Permission[] getPermissions() {
+    @Nullable
+    public Permission[] getPermissions() {
         return null;
     }
 }

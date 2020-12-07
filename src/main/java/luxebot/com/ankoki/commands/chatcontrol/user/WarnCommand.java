@@ -1,4 +1,4 @@
-package luxebot.com.ankoki.commands;
+package luxebot.com.ankoki.commands.chatcontrol.user;
 
 import luxebot.com.ankoki.gitignore.Secrets;
 import luxebot.com.ankoki.managers.GuildCommand;
@@ -39,10 +39,10 @@ public class WarnCommand implements GuildCommand {
                         null, null, null, Secrets.COLOR.getRGB(), null,
                         null ,null, null, new Footer(user.getAsTag() + " | " + dateFormat.format(new Date()), null, null), null,
                         Arrays.asList(new Field("You were warned by " + user.getAsTag() + "!",
-                                "You were warned for `" + StringUtils.asString(StringUtils.removeOne(args)) +
+                                "You were warned for `" + StringUtils.arrayAsString(StringUtils.removeOne(args)) +
                                         "`, please refrain from doing this again, as it may end in a ban!", false)))).queue();
             });
-            channel.sendMessage(Embed.simple(user.getAsTag() + " has warned " + warned.getAsTag() + " for `" + StringUtils.asString(StringUtils.removeOne(args)) + "`!", user)).queue();
+            channel.sendMessage(Embed.simple(user.getAsTag() + " has warned " + warned.getAsTag() + " for `" + StringUtils.arrayAsString(StringUtils.removeOne(args)) + "`!", user)).queue();
         }
     }
 

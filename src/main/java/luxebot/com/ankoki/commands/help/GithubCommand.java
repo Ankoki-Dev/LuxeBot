@@ -1,4 +1,4 @@
-package luxebot.com.ankoki.commands;
+package luxebot.com.ankoki.commands.help;
 
 import luxebot.com.ankoki.gitignore.Secrets;
 import luxebot.com.ankoki.managers.GuildCommand;

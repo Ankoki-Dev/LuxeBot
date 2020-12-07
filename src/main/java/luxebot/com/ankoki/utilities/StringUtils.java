@@ -4,11 +4,7 @@ import java.util.Arrays;
 
 public class StringUtils {
 
-    public static String[] asArray(String args) {
-        return args.split(" ");
-    }
-
-    public static String asString(String[] args) {
+    public static String arrayAsString(String[] args) {
         String argsAsString = "";
         int i = 1;
         for (String s : args) {
@@ -26,17 +22,12 @@ public class StringUtils {
         return Arrays.copyOfRange(args, 1, args.length);
     }
 
-    public static String asStringOne(String[] args) {
-        String argsAsString = asString(args);
-        argsAsString.substring(args[0].length());
-        return argsAsString;
-    }
-
     public static String getCommandName(String args, String prefix) {
         String[] splitArgs = args.split(" ");
         String cmdName = splitArgs[0].substring(prefix.length());
         return cmdName;
     }
+
 
     public static String withoutCommand(String args) {
         try {

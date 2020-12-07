@@ -1,4 +1,4 @@
-package luxebot.com.ankoki.commands;
+package luxebot.com.ankoki.commands.chatcontrol;
 
 import luxebot.com.ankoki.managers.GuildCommand;
 import luxebot.com.ankoki.utilities.Embed;
@@ -19,7 +19,7 @@ public class PurgeCommand implements GuildCommand {
             channel.sendMessage(PURGE_FAILED_EMBED("I am currently working! Please wait...", user)).queue();
             return;
         }
-        purge(channel, StringUtils.asString(args), user);
+        purge(channel, StringUtils.arrayAsString(args), user);
     }
 
     @Override
@@ -27,17 +27,17 @@ public class PurgeCommand implements GuildCommand {
         return new String[]{"purge", "remove"};
     }
 
-    @Nullable
     @Override
+    @Nullable
     public Permission[] getPermissions() {
         return new Permission[]{Permission.MESSAGE_MANAGE};
     }
 
-    public static final MessageEmbed PURGE_SUCCESS_EMBED(int messagesPurged, User user) {
+    private static final MessageEmbed PURGE_SUCCESS_EMBED(int messagesPurged, User user) {
         return Embed.simple(":white_check_mark: You have successfully purged " + messagesPurged + " messages!", user);
     }
 
-    public static final MessageEmbed PURGE_FAILED_EMBED(String reason, User user) {
+    private static final MessageEmbed PURGE_FAILED_EMBED(String reason, User user) {
         return Embed.simple(":no_entry_sign: " + reason, user);
     }
 
