@@ -1,5 +1,6 @@
 package com.ankoki.luxebot;
 
+import com.ankoki.luxebot.commands.fun.SucksCommand;
 import com.ankoki.luxebot.gitignore.Secrets;
 import com.ankoki.luxebot.commands.chatcontrol.PurgeCommand;
 import com.ankoki.luxebot.commands.fun.EightBallCommand;
@@ -83,6 +84,7 @@ public class LuxeBot extends ListenerAdapter {
         GUILD_COMMANDS.add(new BottomCommand());
         GUILD_COMMANDS.add(new PastebinCommand());
         GUILD_COMMANDS.add(new EightBallCommand());
+        GUILD_COMMANDS.add(new SucksCommand());
     }
 
     public static LuxeBot instance() {
